@@ -1,0 +1,63 @@
+C51 COMPILER V9.54   MAIN                                                                  12/13/2020 16:45:16 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE ..\User\main.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\User;..\Hardware
+                    -\LED;..\Hardware\SYSCLK;..\Hardware\GPIOConfig;..\Hardware\Delay;..\Hardware\OLED) DEBUG OBJECTEXTEND PRINT(.\Listings\m
+                    -ain.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <stc8.h>
+   2          #include <led.h>
+   3          #include <sysclk.h>
+   4          #include <gpioconfig.h>
+   5          #include <Delay.h>
+   6          #include <oled.h>
+   7          
+   8          unsigned int num;
+   9          int main(void)
+  10          {
+  11   1              sysclk_init();
+  12   1              gpioconfig();
+  13   1              OLED_Init();                    //初始化OLED  
+  14   1              OLED_Clear(); 
+  15   1              num=38;
+  16   1              while(1) 
+  17   1              {               
+  18   2                      P01=0;
+  19   2                      OLED_Clear();
+  20   2                      OLED_ShowCHinese(0,0,0);//当
+  21   2                      OLED_ShowCHinese(18,0,1);//前
+  22   2                      OLED_ShowCHinese(36,0,2);//温
+  23   2                      OLED_ShowCHinese(54,0,3);//度
+  24   2                      OLED_ShowString(72,0,":",16);
+  25   2                      OLED_ShowCHinese(108,0,6);//℃
+  26   2                      OLED_ShowCHinese(0,3,4);//报
+  27   2                      OLED_ShowCHinese(18,3,5);//警
+  28   2                      OLED_ShowCHinese(36,3,2);//温
+  29   2                      OLED_ShowCHinese(54,3,3);//度
+  30   2                      OLED_ShowString(72,3,":",16);
+  31   2                      OLED_ShowNum(90,3,num,2,16);
+  32   2                      OLED_ShowCHinese(108,3,6);//℃ 
+  33   2                      delay_ms(8000);
+  34   2                      delay_ms(8000);
+  35   2              }         
+  36   1      }
+  37          
+  38          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    194    ----
+   CONSTANT SIZE    =      2    ----
+   XDATA SIZE       =      2    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,55 @@
+C51 COMPILER V9.54   SYSCLK                                                                12/13/2020 16:45:15 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE SYSCLK
+OBJECT MODULE PLACED IN .\Objects\SYSCLK.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE ..\Hardware\SYSCLK\SYSCLK.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\Use
+                    -r;..\Hardware\LED;..\Hardware\SYSCLK;..\Hardware\GPIOConfig;..\Hardware\Delay;..\Hardware\OLED) DEBUG OBJECTEXTEND PRINT
+                    -(.\Listings\SYSCLK.lst) OBJECT(.\Objects\SYSCLK.obj)
+
+line level    source
+
+   1          #include <sysclk.h>
+   2          #include <stc8.h>
+   3          /**************************************************************************
+   4          函数功能：对STC8A系列单片机系统工作时钟来源进行配置
+   5          入口参数：无
+   6          返回  值：无
+   7          作    者：陈伟杰
+   8          **************************************************************************/
+   9          void sysclk_init()
+  10          {
+  11   1              /*
+  12   1              P_SW2 = 0x80;
+  13   1          CKSEL = 0x00; //选择内部 IRC ( 默认 )
+  14   1          P_SW2 = 0x00;
+  15   1              */
+  16   1          P_SW2 = 0x80;
+  17   1          XOSCCR = 0xc0; //启动外部晶振
+  18   1          while (!(XOSCCR & 1)); //等待时钟稳定
+  19   1          CLKDIV = 0x00; //时钟不分频
+  20   1          CKSEL = 0x01; //选择外部晶振
+  21   1          P_SW2 = 0x00;
+  22   1          /*
+  23   1          P_SW2 = 0x80;
+  24   1          IRC32KCR = 0x80; //启动内部 32K IRC
+  25   1          while (!(IRC32KCR & 1)); //等待时钟稳定
+  26   1          CLKDIV = 0x00; //时钟不分频
+  27   1          CKSEL = 0x03; //选择内部 32K
+  28   1          P_SW2 = 0x00;
+  29   1          */
+  30   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     30    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

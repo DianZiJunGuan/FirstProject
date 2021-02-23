@@ -1,0 +1,89 @@
+C51 COMPILER V9.54   DELAY                                                                 12/13/2020 16:45:16 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE DELAY
+OBJECT MODULE PLACED IN .\Objects\Delay.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE ..\Hardware\Delay\Delay.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\User;
+                    -..\Hardware\LED;..\Hardware\SYSCLK;..\Hardware\GPIOConfig;..\Hardware\Delay;..\Hardware\OLED) DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\Delay.lst) OBJECT(.\Objects\Delay.obj)
+
+line level    source
+
+   1          #include <delay.h>
+   2          #include <intrins.h>
+   3          
+   4          /**************************************************************************
+   5          函数功能：延时
+   6          入口参数：无
+   7          返回  值：无
+   8          作    者：陈伟杰
+   9          **************************************************************************/
+  10          void Delay500ms()               //@11.0592MHz
+  11          {
+  12   1              unsigned char i, j, k;
+  13   1      
+  14   1              _nop_();
+  15   1              _nop_();
+  16   1              i = 22;
+  17   1              j = 3;
+  18   1              k = 227;
+  19   1              do
+  20   1              {
+  21   2                      do
+  22   2                      {
+  23   3                              while (--k);
+  24   3                      } while (--j);
+  25   2              } while (--i);
+  26   1      }
+  27          
+  28          void Delay1000ms()              //@11.0592MHz
+  29          {
+  30   1              unsigned char i, j, k;
+  31   1      
+  32   1              _nop_();
+  33   1              _nop_();
+  34   1              i = 43;
+  35   1              j = 6;
+  36   1              k = 203;
+  37   1              do
+  38   1              {
+  39   2                      do
+  40   2                      {
+  41   3                              while (--k);
+  42   3                      } while (--j);
+  43   2              } while (--i);
+  44   1      }
+  45          
+  46          void Delay100ms()               //@11.0592MHz
+  47          {
+  48   1              unsigned char i, j, k;
+  49   1      
+  50   1              _nop_();
+  51   1              _nop_();
+  52   1              i = 5;
+  53   1              j = 52;
+C51 COMPILER V9.54   DELAY                                                                 12/13/2020 16:45:16 PAGE 2   
+
+  54   1              k = 195;
+  55   1              do
+  56   1              {
+  57   2                      do
+  58   2                      {
+  59   3                              while (--k);
+  60   3                      } while (--j);
+  61   2              } while (--i);
+  62   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     45    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
